@@ -1,0 +1,3 @@
+# Este archivo mantiene la carpeta uploads en el repositorio Git
+# La carpeta uploads es necesaria para el funcionamiento de la aplicación
+# pero no debe contener archivos de usuario en el repositorio
