@@ -31,7 +31,7 @@ function MiHojaDeVida() {
         } else {
           setError('Error al cargar tu hoja de vida. Intenta de nuevo.');
         }
-        setCv(null);
+        setCv(null); 
       } finally {
         setLoading(false);
       }
