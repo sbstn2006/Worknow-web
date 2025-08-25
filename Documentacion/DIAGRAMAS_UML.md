@@ -1,16 +1,14 @@
-# 🎨 DIAGRAMAS UML - WORKNOW CV RECEPTION APP
+  DIAGRAMAS UML - WORKNOW CV RECEPTION APP
 
-## 📅 **INFORMACIÓN DEL DOCUMENTO:**
-- **Proyecto:** WorkNow - Sistema de Recepción de CVs
-- **Versión:** 1.0.0
-- **Fecha:** Diciembre 2024
-- **Tipo:** Diagramas UML de Clases y Secuencia
+  INFORMACIÓN DEL DOCUMENTO:
+- Proyecto: WorkNow - Sistema de Recepción de CVs
+- Tipo: Diagramas UML de Clases y Secuencia
 
-## 🏗️ **DIAGRAMA UML DE CLASES:**
+  DIAGRAMA UML DE CLASES:
 
-### **Frontend - Componentes React:**
+ Frontend - Componentes React:
 
-```mermaid
+mermaid
 classDiagram
     class App {
         +state: Object
@@ -85,11 +83,11 @@ classDiagram
     Home --> UploadForm
     Home --> MiHojaDeVida
     Home --> PanelReclutadores
-```
 
-### **Backend - Servicios y Rutas:**
 
-```mermaid
+ Backend - Servicios y Rutas:
+
+mermaid
 classDiagram
     class Server {
         +app: Express
@@ -147,11 +145,11 @@ classDiagram
     CVController --> DatabaseConnection
     VacantesController --> DatabaseConnection
     PostulacionesController --> DatabaseConnection
-```
 
-### **Base de Datos - Entidades:**
 
-```mermaid
+ Base de Datos - Entidades:
+
+mermaid
 classDiagram
     class Usuario {
         +id: INT (PK)
@@ -239,13 +237,13 @@ classDiagram
     Vacante ||--o{ Postulacion : "recibe"
     Vacante ||--o{ VacanteFavorita : "es marcada"
     Vacante }o--|| Empresa : "pertenece a"
-```
 
-## 🔄 **DIAGRAMAS UML DE SECUENCIA:**
 
-### **1. Flujo de Registro de Usuario:**
+  DIAGRAMAS UML DE SECUENCIA:
 
-```mermaid
+ 1. Flujo de Registro de Usuario:
+
+mermaid
 sequenceDiagram
     participant U as Usuario
     participant F as Frontend
@@ -261,11 +259,11 @@ sequenceDiagram
     DB-->>B: Confirmación
     B-->>F: Respuesta exitosa
     F-->>U: Redirección a login
-```
 
-### **2. Flujo de Subida de CV:**
 
-```mermaid
+ 2. Flujo de Subida de CV:
+
+mermaid
 sequenceDiagram
     participant U as Usuario
     participant F as Frontend
@@ -284,11 +282,11 @@ sequenceDiagram
     DB-->>B: ID del CV
     B-->>F: Respuesta exitosa
     F-->>U: Confirmación y redirección
-```
 
-### **3. Flujo de Búsqueda de Vacantes:**
 
-```mermaid
+ 3. Flujo de Búsqueda de Vacantes:
+
+mermaid
 sequenceDiagram
     participant U as Usuario
     participant F as Frontend
@@ -304,11 +302,11 @@ sequenceDiagram
     B-->>F: Lista de vacantes
     F->>F: Renderizar resultados
     F-->>U: Mostrar vacantes filtradas
-```
 
-### **4. Flujo de Aplicación a Vacante:**
 
-```mermaid
+ 4. Flujo de Aplicación a Vacante:
+
+mermaid
 sequenceDiagram
     participant U as Usuario
     participant F as Frontend
@@ -327,11 +325,11 @@ sequenceDiagram
     B->>DB: INSERT INTO notificaciones
     B-->>F: Respuesta exitosa
     F-->>U: Confirmación de aplicación
-```
 
-### **5. Flujo de Evaluación de CV (Reclutador):**
 
-```mermaid
+ 5. Flujo de Evaluación de CV (Reclutador):
+
+mermaid
 sequenceDiagram
     participant R as Reclutador
     participant F as Frontend
@@ -353,11 +351,11 @@ sequenceDiagram
     B->>DB: INSERT notificación para candidato
     B-->>F: Respuesta exitosa
     F-->>R: Confirmación de evaluación
-```
 
-## 📊 **DIAGRAMA UML DE COMPONENTES:**
 
-```mermaid
+  DIAGRAMA UML DE COMPONENTES:
+
+mermaid
 componentDiagram
     component "Frontend (React)" {
         component "Componentes de UI"
@@ -389,11 +387,10 @@ componentDiagram
     "Frontend (React)" --> "Backend (Node.js)" : HTTP/HTTPS
     "Backend (Node.js)" --> "Base de Datos" : MySQL Connection
     "Backend (Node.js)" --> "Sistema de Archivos" : File I/O
-```
 
-## 🔗 **DIAGRAMA UML DE DEPLOYMENT:**
 
-```mermaid
+  DIAGRAMA UML DE DEPLOYMENT:
+mermaid
 deploymentDiagram
     deployment "Cliente Web" {
         node "Navegador" {
@@ -426,42 +423,38 @@ deploymentDiagram
     "Cliente Web" --> "Servidor de Aplicación" : HTTP/HTTPS (Port 3001)
     "Servidor de Aplicación" --> "Base de Datos" : MySQL (Port 3306)
     "Servidor de Aplicación" --> "Sistema de Archivos" : Local File System
-```
 
-## 📋 **LEGENDA DE SÍMBOLOS UML:**
 
-### **Relaciones:**
-- **||--o{** : Uno a muchos (1:N)
-- **||--||** : Uno a uno (1:1)
-- **}o--o{** : Muchos a muchos (M:N)
-- **-->** : Dependencia/Comunicación
-- **-->>** : Respuesta/Retorno
+  LEGENDA DE SÍMBOLOS UML:
 
-### **Modificadores de Acceso:**
-- **+** : Público
-- **-** : Privado
-- **#** : Protegido
-- **~** : Paquete
+ Relaciones:
+- ||--o{ : Uno a muchos (1:N)
+- ||--|| : Uno a uno (1:1)
+- }o--o{ : Muchos a muchos (M:N)
+- --> : Dependencia/Comunicación
+- -->> : Respuesta/Retorno
 
-### **Tipos de Datos:**
-- **String/VARCHAR** : Texto
-- **Integer/INT** : Número entero
-- **Boolean/BOOLEAN** : Verdadero/Falso
-- **Date/DATE** : Fecha
-- **Timestamp/TIMESTAMP** : Fecha y hora
-- **JSON** : Objeto JSON
-- **Text/TEXT** : Texto largo
+ Modificadores de Acceso:
+- + : Público
+- - : Privado
+-  : Protegido
+- ~ : Paquete
 
-## 🎯 **OBJETIVOS DE LOS DIAGRAMAS:**
+ Tipos de Datos:
+- String/VARCHAR : Texto
+- Integer/INT : Número entero
+- Boolean/BOOLEAN : Verdadero/Falso
+- Date/DATE : Fecha
+- Timestamp/TIMESTAMP : Fecha y hora
+- JSON : Objeto JSON
+- Text/TEXT : Texto largo
 
-1. **Visualización Clara:** Mostrar la estructura del sistema de manera comprensible
-2. **Documentación Técnica:** Proporcionar referencia para desarrolladores
-3. **Análisis de Arquitectura:** Identificar dependencias y relaciones
-4. **Planificación de Desarrollo:** Guiar la implementación de nuevas funcionalidades
-5. **Mantenimiento:** Facilitar la comprensión del código existente
+  OBJETIVOS DE LOS DIAGRAMAS:
 
----
+1. Visualización Clara: Mostrar la estructura del sistema de manera comprensible
+2. Documentación Técnica: Proporcionar referencia para desarrolladores
+3. Análisis de Arquitectura: Identificar dependencias y relaciones
+4. Planificación de Desarrollo: Guiar la implementación de nuevas funcionalidades
+5. Mantenimiento: Facilitar la comprensión del código existente
 
-**Documento generado:** Diciembre 2024  
-**Versión:** 1.0.0  
-**Estado:** Finalizado
+

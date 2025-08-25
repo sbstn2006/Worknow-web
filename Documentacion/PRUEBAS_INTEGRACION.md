@@ -1,17 +1,17 @@
-# 🧪 PRUEBAS DE INTEGRACIÓN - WORKNOW CV RECEPTION APP
+ PRUEBAS DE INTEGRACIÓN - WORKNOW CV RECEPTION APP
 
-## 🎯 Objetivo
+ Objetivo
 Implementar pruebas de integración que verifiquen la comunicación entre frontend, backend y base de datos.
 
-## 🔧 Configuración de Pruebas de Integración
+ Configuración de Pruebas de Integración
 
-### 1. Instalar Dependencias
+ 1. Instalar Dependencias
 ```bash
 cd frontend
 npm install --save-dev @testing-library/jest-dom @testing-library/user-event jest-environment-jsdom
 ```
 
-### 2. Configurar Jest para Pruebas de Integración
+ 2. Configurar Jest para Pruebas de Integración
 Crear `frontend/jest.integration.config.js`:
 ```javascript
 module.exports = {
@@ -30,11 +30,11 @@ module.exports = {
 };
 ```
 
-## 📁 Estructura de Pruebas de Integración
+  Estructura de Pruebas de Integración
 
-### Directorio: `frontend/src/__tests__/integration/`
+ Directorio: `frontend/src/__tests__/integration/`
 
-#### 1. `auth-flow.test.js` - Flujo Completo de Autenticación
+ 1. `auth-flow.test.js` - Flujo Completo de Autenticación
 ```javascript
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
@@ -43,7 +43,7 @@ import axios from 'axios';
 import Login from '../../Login';
 import Register from '../../Register';
 
-// Mock de axios para simular respuestas del backend
+// Mock de axios para simular respuestas del backnd
 jest.mock('axios');
 
 describe('Flujo de Autenticación - Pruebas de Integración', () => {
@@ -58,7 +58,7 @@ describe('Flujo de Autenticación - Pruebas de Integración', () => {
       data: { message: 'Usuario registrado exitosamente' }
     });
 
-    // Mock de login exitoso
+    // Mock de lgin exitoso
     axios.post.mockResolvedValueOnce({
       data: { 
         success: true, 
@@ -130,7 +130,7 @@ describe('Flujo de Autenticación - Pruebas de Integración', () => {
 });
 ```
 
-#### 2. `cv-upload-flow.test.js` - Flujo Completo de Subida de CV
+ 2. `cv-upload-flow.test.js` - Flujo Completo de Subida de CV
 ```javascript
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
@@ -231,7 +231,7 @@ describe('Flujo de Subida de CV - Pruebas de Integración', () => {
 });
 ```
 
-#### 3. `vacancies-flow.test.js` - Flujo Completo de Vacantes
+ 3. `vacancies-flow.test.js` - Flujo Completo de Vacantes
 ```javascript
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
@@ -332,70 +332,6 @@ describe('Flujo de Vacantes - Pruebas de Integración', () => {
 });
 ```
 
-## 🚀 Ejecutar Pruebas de Integración
 
-### 1. Ejecutar Todas las Pruebas
-```bash
-cd frontend
-npm test -- --config=jest.integration.config.js
-```
 
-### 2. Ejecutar con Cobertura
-```bash
-npm test -- --config=jest.integration.config.js --coverage
-```
 
-### 3. Ejecutar Pruebas Específicas
-```bash
-npm test -- --config=jest.integration.config.js --testNamePattern="Flujo de Autenticación"
-```
-
-## 📊 Métricas de Cobertura
-
-### Objetivos:
-- **Cobertura de Código**: >80%
-- **Cobertura de Funcionalidades**: >90%
-- **Tiempo de Ejecución**: <30 segundos
-
-### Archivos de Cobertura:
-- `frontend/coverage/integration/lcov-report/index.html`
-- `frontend/coverage/integration/coverage-summary.json`
-
-## 🔍 Verificación de Pruebas
-
-### 1. Verificar Backend Activo
-```bash
-cd backend
-npm start
-```
-
-### 2. Verificar Base de Datos
-- MySQL ejecutándose
-- Base de datos `cv_reception` creada
-- Tablas con datos de prueba
-
-### 3. Verificar Variables de Entorno
-```bash
-# backend/.env
-DB_HOST=localhost
-DB_USER=tu_usuario
-DB_PASSWORD=tu_password
-DB_NAME=cv_reception
-PORT=3001
-```
-
-## 📝 Reportes de Pruebas
-
-### Generar Reporte HTML
-```bash
-npm test -- --config=jest.integration.config.js --coverage --coverageReporters=html
-```
-
-### Generar Reporte JSON
-```bash
-npm test -- --config=jest.integration.config.js --coverage --coverageReporters=json
-```
-
----
-
-**¡Con estas pruebas de integración tendrás una cobertura completa del flujo de la aplicación! 🎉**
